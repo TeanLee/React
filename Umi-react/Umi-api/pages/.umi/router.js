@@ -12,7 +12,7 @@ export default function() {
   return (
 <Router history={window.g_history}>
   <Layout><Switch>
-    <Route exact path="/404" component={require('../404.js').default} />
+    <Route exact path="/404" component={() => React.createElement(require('C:/Users/ting/AppData/Local/Yarn/config/global/node_modules/umi-build-dev/lib/Compiling.js').default, { route: '/404' })} />
     <Route exact path="/home" component={require('../home/page.jsx').default} />
     <Route exact path="/" component={require('../index.js').default} />
     <Route exact path="/list" component={() => React.createElement(require('C:/Users/ting/AppData/Local/Yarn/config/global/node_modules/umi-build-dev/lib/Compiling.js').default, { route: '/list' })} />
