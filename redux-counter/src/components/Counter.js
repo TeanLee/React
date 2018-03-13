@@ -3,16 +3,32 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 class Counter extends Component {
+    // constructor(props) {
+    //     super(props)
+    //     // 新生成的函数一定要添加bind   可以在constructor中声明，也可以在行内声明
+    //     this.incrementIfOdd = this.incrementIfOdd.bind(this)
+    // }
+    incrementIfOdd() {
+        if(this.props.value % 2 !== 0) {
+            this.props.onIncrement()
+        }
+    }
+    incrementAsync() {
+        setTimeout(this.props.onIncrement, 3000)
+    }
     render () {
         // 从this.props 父组件中解构出 value 等
         const { value, onIncrement, onDecrement } = this.props
         return (
             <p>
-                Click: {value} times
+                Click:   {value} times
                 {' '}
                 <button onClick={onIncrement}>+</button>
                 {' '}
                 <button onClick={onDecrement}>-</button>
+                {' '}
+                <button onClick={this.incrementIfOdd.bind(this)}>Increment if odd.</button>
+                <button onClick={this.incrementAsync.bind(this)}>Increment async.</button>
             </p>
         )
     }
